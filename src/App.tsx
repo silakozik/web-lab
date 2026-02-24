@@ -27,8 +27,11 @@ function App() {
 
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        Ana içeriğe atla
+      </a>
       <header>
-        <nav>
+        <nav aria-label="Ana navigasyon">
           <ul>
             <li><a href="#hakkimda">Hakkimda</a></li>
             <li><a href="#projeler">Projeler</a></li>
@@ -37,7 +40,7 @@ function App() {
         </nav>
       </header>
 
-      <main>
+      <main id="main-content">
         <section id="hakkimda">
           <h2>Hakkımda</h2>
           <p>Merhaba! Ben bir yazılım geliştiricisiyim. Projeler geliştirmeyi seviyorum.</p>
