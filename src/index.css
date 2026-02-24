@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #2a2a35;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,15 +15,15 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #7c8aff;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #9ba5ff;
 }
 a:focus,
 a:focus-visible {
-  outline: 2px solid #646cff;
+  outline: 2px solid #7c8aff;
   outline-offset: 2px;
 }
 
@@ -31,7 +31,7 @@ a:focus-visible {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #646cff;
+  background: #7c8aff;
   color: white;
   padding: 8px;
   text-decoration: none;
@@ -43,10 +43,91 @@ a:focus-visible {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+}
+
+header {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+section h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+figure {
+  margin: 1.5rem 0;
+}
+
+figure img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 4px;
+}
+
+figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+form div {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+small {
+  display: block;
+  color: #ff8a8a;
+  margin-top: 0.5rem;
+}
+
+footer {
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 3rem;
 }
 
 h1 {
@@ -61,12 +142,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #3a3a45;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #7c8aff;
+  background-color: #4a4a55;
 }
 button:focus,
 button:focus-visible {
@@ -77,7 +159,7 @@ input:focus,
 input:focus-visible,
 textarea:focus,
 textarea:focus-visible {
-  outline: 2px solid #646cff;
+  outline: 2px solid #7c8aff;
   outline-offset: 2px;
 }
 
@@ -86,10 +168,27 @@ textarea:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+  a {
+    color: #6b7aff;
+  }
   a:hover {
-    color: #747bff;
+    color: #8b9aff;
   }
   button {
     background-color: #f9f9f9;
+  }
+  header {
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
+  input,
+  textarea {
+    border-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  figcaption {
+    color: rgba(0, 0, 0, 0.6);
+  }
+  footer {
+    border-top-color: rgba(0, 0, 0, 0.1);
   }
 }
