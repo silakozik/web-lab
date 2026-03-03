@@ -107,6 +107,26 @@ body {
   gap: var(--space-md);
 }
 
+.nav-list a {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 999px;
+  color: var(--color-text);
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition:
+    background-color 0.18s ease-out,
+    color 0.18s ease-out,
+    border-color 0.18s ease-out;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  background-color: var(--color-primary);
+  color: #111827;
+  border-color: rgba(0, 0, 0, 0.25);
+}
+
 @media (max-width: 639px) {
   .site-nav {
     flex-direction: column;
@@ -117,6 +137,12 @@ body {
   .nav-list {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+  }
+
+  .nav-list a {
+    width: 100%;
+    text-align: center;
   }
 }
 
