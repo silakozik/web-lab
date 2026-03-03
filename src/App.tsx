@@ -58,16 +58,46 @@ function App() {
           </ul>
         </section>
 
-        <section id="projeler" className="section-card section-grid">
-          <div>
-            <h2>Projelerim</h2>
-            <p>Web uygulamaları, küçük deneysel projeler ve arayüz odaklı çalışmalar üzerinde uğraşıyorum.</p>
+        <section id="projeler" className="section-card">
+          <h2>Projelerim</h2>
+          <div className="project-grid">
+            <article className="project-card">
+              <img src="/lighthouse.png" alt="E-Ticaret sitesi anasayfa ekran görüntüsü" />
+              <div className="project-card-body">
+                <h3>E-Ticaret Sitesi</h3>
+                <p>React ve Node.js ile geliştirilmiş tam kapsamlı bir e-ticaret uygulaması.</p>
+                <ul className="skill-tags" role="list" aria-label="Projede kullanılan teknolojiler">
+                  <li>React</li>
+                  <li>Node.js</li>
+                  <li>MongoDB</li>
+                </ul>
+              </div>
+            </article>
+
+            <article className="project-card">
+              <img src="/lighthouse.png" alt="Blog uygulaması yazı listesi görünümü" />
+              <div className="project-card-body">
+                <h3>Blog Uygulaması</h3>
+                <p>Kişisel blog platformu. Markdown destekli yazı editörü ve etiket sistemi içerir.</p>
+                <ul className="skill-tags" role="list" aria-label="Projede kullanılan teknolojiler">
+                  <li>TypeScript</li>
+                  <li>Next.js</li>
+                </ul>
+              </div>
+            </article>
+
+            <article className="project-card">
+              <img src="/lighthouse.png" alt="Hava durumu uygulaması arayüzü" />
+              <div className="project-card-body">
+                <h3>Hava Durumu</h3>
+                <p>OpenWeather API ile anlık hava durumu bilgisini gösteren basit bir arayüz.</p>
+                <ul className="skill-tags" role="list" aria-label="Projede kullanılan teknolojiler">
+                  <li>JavaScript</li>
+                  <li>API</li>
+                </ul>
+              </div>
+            </article>
           </div>
-          <ul className="project-list">
-            <li className="project-pill">Kişisel portfolyo</li>
-            <li className="project-pill">Form doğrulama denemeleri</li>
-            <li className="project-pill">Erişilebilirlik alıştırmaları</li>
-          </ul>
         </section>
 
         <section id="iletisim" className="section-card">
