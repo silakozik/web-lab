@@ -1,5 +1,17 @@
 @import './styles/tokens.css';
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 a,
 button,
 input,
@@ -42,9 +54,20 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-size: var(--text-base);
+  line-height: 1.6;
   background-image:
     radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 55%),
     radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.12), transparent 55%);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+section {
+  padding: var(--space-xl) var(--space-md);
 }
 
 .page {
@@ -334,5 +357,31 @@ textarea:focus,
 textarea:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+}
+
+/* Tablet breakpoint (640px and up) */
+@media (min-width: 640px) {
+  section {
+    padding: var(--space-2xl) var(--space-xl);
+  }
+
+  .page-main {
+    padding: 3rem 2.5rem 3.5rem;
+  }
+}
+
+/* Desktop breakpoint (1024px and up) */
+@media (min-width: 1024px) {
+  .page-main {
+    max-width: 1200px;
+  }
+
+  section {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
