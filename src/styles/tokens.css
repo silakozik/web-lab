@@ -13,6 +13,13 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Design tokens */
+  /* Fluid typography */
+  --text-base: clamp(0.95rem, 0.24vw + 0.85rem, 1.05rem);
+  --text-lg: clamp(1.05rem, 0.3vw + 0.95rem, 1.2rem);
+  --text-xl: clamp(1.2rem, 0.45vw + 1.05rem, 1.4rem);
+  --text-2xl: clamp(1.4rem, 0.8vw + 1.1rem, 1.8rem);
+  --text-3xl: clamp(1.8rem, 1.3vw + 1.3rem, 2.4rem);
+
   --color-bg: #111827;
   --color-text: #f9fafb;
   --color-primary: #f97316; /* canlı turuncu */

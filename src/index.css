@@ -41,6 +41,7 @@ body {
   min-height: 100vh;
   background-color: var(--color-bg);
   color: var(--color-text);
+  font-size: var(--text-base);
   background-image:
     radial-gradient(circle at top left, rgba(249, 115, 22, 0.15), transparent 55%),
     radial-gradient(circle at bottom right, rgba(249, 115, 22, 0.12), transparent 55%);
@@ -107,14 +108,14 @@ body {
 }
 
 h1 {
-  font-size: clamp(2rem, 3vw, 2.4rem);
+  font-size: var(--text-3xl);
   margin: 0 0 0.75rem;
 }
 
 section h2 {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 1.2rem;
+  font-size: var(--text-2xl);
 }
 
 .section-card {
@@ -214,11 +215,6 @@ small {
   border-top: 1px solid var(--color-border-subtle);
   margin-top: 3rem;
   font-size: 0.85rem;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
 button {
