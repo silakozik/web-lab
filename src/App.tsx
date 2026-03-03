@@ -48,6 +48,14 @@ function App() {
         <section id="hakkimda" className="section-card">
           <h1>Merhaba, ben Sıla.</h1>
           <p>Modern web arayüzleri ve kullanıcı odaklı deneyimler tasarlamayı seven bir yazılım geliştiricisiyim.</p>
+          <ul className="skill-tags" role="list" aria-label="Beceri etiketleri">
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>JavaScript</li>
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Git</li>
+          </ul>
         </section>
 
         <section id="projeler" className="section-card section-grid">

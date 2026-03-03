@@ -200,6 +200,24 @@ section h2 {
   color: rgba(209, 213, 219, 1);
 }
 
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  list-style: none;
+  padding: 0;
+  margin: var(--space-md) 0 0;
+}
+
+.skill-tags li {
+  background-color: var(--color-primary);
+  color: #111827;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
 .contact-form {
   margin-top: var(--space-md);
   display: flex;
