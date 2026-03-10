@@ -1,4 +1,43 @@
 @import './styles/tokens.css';
+@import "tailwindcss";
+
+@theme {
+  /* Accent — canlı turuncu */
+  --color-accent: #f97316;
+  --color-accent-light: #fb923c;
+  --color-accent-dim: rgba(249, 115, 22, 0.15);
+
+  /* Arka plan katmanları */
+  --color-base: #0d1117;
+  --color-surface: #161b22;
+  --color-raised: #1e2530;
+  --color-overlay: rgba(255, 255, 255, 0.04);
+
+  /* Metin */
+  --color-text: #e6edf3;
+  --color-muted: #8b949e;
+  --color-faint: rgba(230, 237, 243, 0.4);
+
+  /* Kenar çizgileri */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+
+  /* Durum renkleri */
+  --color-success: #3fb950;
+  --color-warning: #d29922;
+  --color-error: #f85149;
+  --color-info: #58a6ff;
+
+  /* Font aileleri */
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+}
 
 *,
 *::before,
@@ -24,9 +63,11 @@ a {
   color: var(--color-primary);
   text-decoration: inherit;
 }
+
 a:hover {
   color: var(--color-primary-hover);
 }
+
 a:focus,
 a:focus-visible {
   outline: 2px solid var(--color-primary);
@@ -43,6 +84,7 @@ a:focus-visible {
   text-decoration: none;
   z-index: 100;
 }
+
 .skip-link:focus {
   top: 0;
 }
@@ -340,12 +382,14 @@ button {
     box-shadow 0.2s ease,
     transform 0.08s ease-out;
 }
+
 button:hover {
   border-color: var(--color-primary);
   background-color: var(--color-button-bg-hover);
   box-shadow: 0 12px 24px rgba(15, 23, 42, 0.45);
   transform: translateY(-1px);
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -384,4 +428,3 @@ textarea:focus-visible {
     grid-template-columns: repeat(3, 1fr);
   }
 }
-
