@@ -1,9 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+
+interface Project {
+  id: number
+  title: string
+  description: string
+  image: string
+  imageAlt: string
+  tags: string[]
+}
 
 function App() {
+  const [projects, setProjects] = useState<Project[]>([])
   const [email, setEmail] = useState('')
   const [msg, setMsg] = useState('')
   const [err, setErr] = useState('')
+
+  useEffect(() => {
+    fetch('/data/projects.json')
+      .then(res => res.json())
+      .then((data: Project[]) => setProjects(data))
+      .catch(err => console.error('Projeler yüklenemedi:', err))
+  }, [])
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -61,42 +78,20 @@ function App() {
         <section id="projeler" className="section-card">
           <h2>Projelerim</h2>
           <div className="project-grid">
-            <article className="project-card">
-              <img src="/lighthouse.png" alt="E-Ticaret sitesi anasayfa ekran görüntüsü" />
-              <div className="project-card-body">
-                <h3>E-Ticaret Sitesi</h3>
-                <p>React ve Node.js ile geliştirilmiş tam kapsamlı bir e-ticaret uygulaması.</p>
-                <ul className="skill-tags" role="list" aria-label="Projede kullanılan teknolojiler">
-                  <li>React</li>
-                  <li>Node.js</li>
-                  <li>MongoDB</li>
-                </ul>
-              </div>
-            </article>
-
-            <article className="project-card">
-              <img src="/lighthouse.png" alt="Blog uygulaması yazı listesi görünümü" />
-              <div className="project-card-body">
-                <h3>Blog Uygulaması</h3>
-                <p>Kişisel blog platformu. Markdown destekli yazı editörü ve etiket sistemi içerir.</p>
-                <ul className="skill-tags" role="list" aria-label="Projede kullanılan teknolojiler">
-                  <li>TypeScript</li>
-                  <li>Next.js</li>
-                </ul>
-              </div>
-            </article>
-
-            <article className="project-card">
-              <img src="/lighthouse.png" alt="Hava durumu uygulaması arayüzü" />
-              <div className="project-card-body">
-                <h3>Hava Durumu</h3>
-                <p>OpenWeather API ile anlık hava durumu bilgisini gösteren basit bir arayüz.</p>
-                <ul className="skill-tags" role="list" aria-label="Projede kullanılan teknolojiler">
-                  <li>JavaScript</li>
-                  <li>API</li>
-                </ul>
-              </div>
-            </article>
+            {projects.map(project => (
+              <article key={project.id} className="project-card">
+                <img src={project.image} alt={project.imageAlt} />
+                <div className="project-card-body">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <ul className="skill-tags" role="list" aria-label="Projede kullanılan teknolojiler">
+                    {project.tags.map(tag => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
           </div>
         </section>
 
