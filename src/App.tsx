@@ -1,18 +1,36 @@
 import { useState, useEffect } from 'react'
-import type { Project } from './types/project'
+import type { Project, FilterState } from './types/project'
 import { fetchProjects } from './services/projectService'
+import { filterProjects, sortProjects } from './utils/projectHelpers'
 
 function App() {
   const [projects, setProjects] = useState<Project[]>([])
+  const [loading, setLoading] = useState(true)
+  const [filters, setFilters] = useState<FilterState>({
+    search: "",
+    category: "all",
+    sortField: "year",
+    sortOrder: "desc"
+  })
+
   const [email, setEmail] = useState('')
   const [msg, setMsg] = useState('')
   const [err, setErr] = useState('')
 
   useEffect(() => {
     fetchProjects()
-      .then((data: Project[]) => setProjects(data))
-      .catch((err: Error) => console.error('Projeler yüklenemedi:', err))
+      .then((data: Project[]) => {
+        setProjects(data)
+        setLoading(false)
+      })
+      .catch((err: Error) => {
+        console.error('Projeler yüklenemedi:', err)
+        setLoading(false)
+      })
   }, [])
+
+  const filteredProjects = filterProjects(projects, filters)
+  const sortedProjects = sortProjects(filteredProjects, filters)
 
   const submit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -31,6 +49,10 @@ function App() {
     alert('Mesajınız gönderildi!')
     setEmail('')
     setMsg('')
+  }
+
+  if (loading) {
+    return <div className="loading">Yükleniyor...</div>
   }
 
   return (
@@ -70,7 +92,7 @@ function App() {
         <section id="projeler" className="section-card">
           <h2>Projelerim</h2>
           <div className="project-grid">
-            {projects.map(project => (
+            {sortedProjects.map(project => (
               <article key={project.id} className="project-card">
                 <img src={project.image} alt={project.title} />
                 <div className="project-card-body">
