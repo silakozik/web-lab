@@ -3,34 +3,45 @@
         "id": 1,
         "title": "E-Ticaret Sitesi",
         "description": "React ve Node.js ile geliştirilmiş tam kapsamlı bir e-ticaret uygulaması.",
-        "image": "/lighthouse.png",
-        "imageAlt": "E-Ticaret sitesi anasayfa ekran görüntüsü",
-        "tags": [
+        "tech": [
             "React",
             "Node.js",
             "MongoDB"
-        ]
+        ],
+        "year": 2024,
+        "category": "fullstack",
+        "featured": true,
+        "image": "/lighthouse.png",
+        "demoUrl": "https://example.com/demo1",
+        "sourceUrl": "https://github.com/example/repo1"
     },
     {
         "id": 2,
         "title": "Blog Uygulaması",
         "description": "Kişisel blog platformu. Markdown destekli yazı editörü ve etiket sistemi içerir.",
-        "image": "/lighthouse.png",
-        "imageAlt": "Blog uygulaması yazı listesi görünümü",
-        "tags": [
+        "tech": [
             "TypeScript",
             "Next.js"
-        ]
+        ],
+        "year": 2023,
+        "category": "frontend",
+        "featured": false,
+        "image": "/lighthouse.png",
+        "demoUrl": "https://example.com/demo2",
+        "sourceUrl": "https://github.com/example/repo2"
     },
     {
         "id": 3,
         "title": "Hava Durumu",
         "description": "OpenWeather API ile anlık hava durumu bilgisini gösteren basit bir arayüz.",
-        "image": "/lighthouse.png",
-        "imageAlt": "Hava durumu uygulaması arayüzü",
-        "tags": [
+        "tech": [
             "JavaScript",
             "API"
-        ]
+        ],
+        "year": 2023,
+        "category": "frontend",
+        "featured": false,
+        "image": "/lighthouse.png",
+        "demoUrl": "https://example.com/demo3"
     }
 ]

@@ -1,13 +1,6 @@
 import { useState, useEffect } from 'react'
-
-interface Project {
-  id: number
-  title: string
-  description: string
-  image: string
-  imageAlt: string
-  tags: string[]
-}
+import type { Project } from './types/project'
+import { fetchProjects } from './services/projectService'
 
 function App() {
   const [projects, setProjects] = useState<Project[]>([])
@@ -16,10 +9,9 @@ function App() {
   const [err, setErr] = useState('')
 
   useEffect(() => {
-    fetch('/data/projects.json')
-      .then(res => res.json())
+    fetchProjects()
       .then((data: Project[]) => setProjects(data))
-      .catch(err => console.error('Projeler yüklenemedi:', err))
+      .catch((err: Error) => console.error('Projeler yüklenemedi:', err))
   }, [])
 
   const submit = (e: React.FormEvent) => {
@@ -80,13 +72,13 @@ function App() {
           <div className="project-grid">
             {projects.map(project => (
               <article key={project.id} className="project-card">
-                <img src={project.image} alt={project.imageAlt} />
+                <img src={project.image} alt={project.title} />
                 <div className="project-card-body">
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
                   <ul className="skill-tags" role="list" aria-label="Projede kullanılan teknolojiler">
-                    {project.tags.map(tag => (
-                      <li key={tag}>{tag}</li>
+                    {project.tech.map(t => (
+                      <li key={t}>{t}</li>
                     ))}
                   </ul>
                 </div>
