@@ -1,35 +1,34 @@
-import ContactForm from './components/ContactForm'
-import Header from './components/layout/Header'
-import Hero from './components/sections/Hero'
-import ProjectList from './components/sections/ProjectList'
+import Header from
+  "./components/layout/Header";
+import Footer from
+  "./components/layout/Footer";
+import Hero from
+  "./components/sections/Hero";
+import About from
+  "./components/sections/About";
+import Skills from
+  "./components/sections/Skills";
+import ProjectList from
+  "./components/sections/ProjectList";
+import ContactSection from
+  "./components/sections/ContactSection";
 
-function App() {
-
+export default function App() {
   return (
-    <div className="page">
-      <a href="#main-content" className="skip-link">
-        Ana içeriğe atla
-      </a>
-
+    <div className="min-h-screen bg-white
+      dark:bg-gray-950 text-gray-900
+      dark:text-white">
       <Header />
 
-      <main id="main-content" className="page-main">
+      <main>
         <Hero />
-
+        <About />
+        <Skills />
         <ProjectList />
-
-        <section id="iletisim" className="section-card">
-          <h2>İletişim</h2>
-          <p className="section-subtitle">Aşağıdaki formdan bana kısa bir mesaj bırakabilirsin.</p>
-          <ContactForm />
-        </section>
+        <ContactSection />
       </main>
 
-      <footer className="site-footer">
-        <p>&copy; 2026 Sıla Kozik. Tüm hakları saklıdır.</p>
-      </footer>
+      <Footer />
     </div>
-  )
+  );
 }
-
-export default App
