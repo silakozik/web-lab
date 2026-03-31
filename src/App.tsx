@@ -5,6 +5,7 @@ import { filterProjects, sortProjects } from './utils/projectHelpers'
 import ContactForm from './components/ContactForm'
 import Header from './components/layout/Header'
 import Hero from './components/sections/Hero'
+import ProjectFilter from './components/forms/ProjectFilter'
 
 function App() {
   const [projects, setProjects] = useState<Project[]>([])
@@ -50,6 +51,18 @@ function App() {
 
         <section id="projeler" className="section-card">
           <h2>Projelerim</h2>
+          <ProjectFilter
+            search={filters.search}
+            onSearchChange={(val) => setFilters(prev => ({ ...prev, search: val }))}
+            category={filters.category}
+            onCategoryChange={(val) => setFilters(prev => ({ ...prev, category: val }))}
+            sortField={filters.sortField}
+            onSortFieldChange={(val) => setFilters(prev => ({ ...prev, sortField: val }))}
+            sortOrder={filters.sortOrder}
+            onSortOrderChange={(val) => setFilters(prev => ({ ...prev, sortOrder: val }))}
+            resultCount={sortedProjects.length}
+            totalCount={projects.length}
+          />
           <div className="project-grid">
             {sortedProjects.map(project => (
               <article key={project.id} className="project-card">
