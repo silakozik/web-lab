@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import type { Project, FilterState } from './types/project'
 import { fetchProjects } from './services/projectService'
 import { filterProjects, sortProjects } from './utils/projectHelpers'
+import ContactForm from './components/ContactForm'
 
 function App() {
   const [projects, setProjects] = useState<Project[]>([])
@@ -13,9 +14,6 @@ function App() {
     sortOrder: "desc"
   })
 
-  const [email, setEmail] = useState('')
-  const [msg, setMsg] = useState('')
-  const [err, setErr] = useState('')
 
   useEffect(() => {
     fetchProjects()
@@ -32,24 +30,6 @@ function App() {
   const filteredProjects = filterProjects(projects, filters)
   const sortedProjects = sortProjects(filteredProjects, filters)
 
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setErr('')
-
-    if (!email || !msg) {
-      setErr('Lütfen tüm alanları doldurun.')
-      return
-    }
-
-    if (msg.length < 10) {
-      setErr('Mesaj en az 10 karakter olmalıdır.')
-      return
-    }
-
-    alert('Mesajınız gönderildi!')
-    setEmail('')
-    setMsg('')
-  }
 
   if (loading) {
     return <div className="loading">Yükleniyor...</div>
@@ -112,34 +92,7 @@ function App() {
         <section id="iletisim" className="section-card">
           <h2>İletişim</h2>
           <p className="section-subtitle">Aşağıdaki formdan bana kısa bir mesaj bırakabilirsin.</p>
-          <form onSubmit={submit} noValidate className="contact-form">
-            <div className="form-field">
-              <label htmlFor="mail">E-posta</label>
-              <input
-                type="email"
-                id="mail"
-                required
-                placeholder="ornek@mail.com"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-              />
-            </div>
-            <div className="form-field">
-              <label htmlFor="txt">Mesaj</label>
-              <textarea
-                id="txt"
-                required
-                minLength={10}
-                placeholder="Kısa bir not bırak..."
-                value={msg}
-                onChange={e => setMsg(e.target.value)}
-              />
-            </div>
-            {err && <small role="alert">{err}</small>}
-            <div className="form-actions">
-              <button type="submit">Gönder</button>
-            </div>
-          </form>
+          <ContactForm />
         </section>
       </main>
 
