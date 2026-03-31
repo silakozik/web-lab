@@ -3,6 +3,7 @@ import type { Project, FilterState } from './types/project'
 import { fetchProjects } from './services/projectService'
 import { filterProjects, sortProjects } from './utils/projectHelpers'
 import ContactForm from './components/ContactForm'
+import Header from './components/layout/Header'
 
 function App() {
   const [projects, setProjects] = useState<Project[]>([])
@@ -41,19 +42,7 @@ function App() {
         Ana içeriğe atla
       </a>
 
-      <header className="site-header">
-        <nav aria-label="Ana navigasyon" className="site-nav">
-          <div className="brand">
-            <span className="brand-mark" aria-hidden="true" />
-            <span className="brand-name">Sıla Kozik</span>
-          </div>
-          <ul className="nav-list">
-            <li><a href="#hakkimda">Hakkımda</a></li>
-            <li><a href="#projeler">Projeler</a></li>
-            <li><a href="#iletisim">İletişim</a></li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
       <main id="main-content" className="page-main">
         <section id="hakkimda" className="section-card">
