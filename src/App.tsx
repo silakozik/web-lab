@@ -1,42 +1,9 @@
-import { useState, useEffect } from 'react'
-import type { Project, FilterState } from './types/project'
-import { fetchProjects } from './services/projectService'
-import { filterProjects, sortProjects } from './utils/projectHelpers'
 import ContactForm from './components/ContactForm'
 import Header from './components/layout/Header'
 import Hero from './components/sections/Hero'
-import ProjectFilter from './components/forms/ProjectFilter'
+import ProjectList from './components/sections/ProjectList'
 
 function App() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
-  const [filters, setFilters] = useState<FilterState>({
-    search: "",
-    category: "all",
-    sortField: "year",
-    sortOrder: "desc"
-  })
-
-
-  useEffect(() => {
-    fetchProjects()
-      .then((data: Project[]) => {
-        setProjects(data)
-        setLoading(false)
-      })
-      .catch((err: Error) => {
-        console.error('Projeler yüklenemedi:', err)
-        setLoading(false)
-      })
-  }, [])
-
-  const filteredProjects = filterProjects(projects, filters)
-  const sortedProjects = sortProjects(filteredProjects, filters)
-
-
-  if (loading) {
-    return <div className="loading">Yükleniyor...</div>
-  }
 
   return (
     <div className="page">
@@ -49,37 +16,7 @@ function App() {
       <main id="main-content" className="page-main">
         <Hero />
 
-        <section id="projeler" className="section-card">
-          <h2>Projelerim</h2>
-          <ProjectFilter
-            search={filters.search}
-            onSearchChange={(val) => setFilters(prev => ({ ...prev, search: val }))}
-            category={filters.category}
-            onCategoryChange={(val) => setFilters(prev => ({ ...prev, category: val }))}
-            sortField={filters.sortField}
-            onSortFieldChange={(val) => setFilters(prev => ({ ...prev, sortField: val }))}
-            sortOrder={filters.sortOrder}
-            onSortOrderChange={(val) => setFilters(prev => ({ ...prev, sortOrder: val }))}
-            resultCount={sortedProjects.length}
-            totalCount={projects.length}
-          />
-          <div className="project-grid">
-            {sortedProjects.map(project => (
-              <article key={project.id} className="project-card">
-                <img src={project.image} alt={project.title} />
-                <div className="project-card-body">
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <ul className="skill-tags" role="list" aria-label="Projede kullanılan teknolojiler">
-                    {project.tech.map(t => (
-                      <li key={t}>{t}</li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
+        <ProjectList />
 
         <section id="iletisim" className="section-card">
           <h2>İletişim</h2>

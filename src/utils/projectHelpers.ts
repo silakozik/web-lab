@@ -1,4 +1,4 @@
-import type { Project, FilterState } from "../types/project";
+import type { Project, FilterState, Category, SortField, SortOrder } from "../types/project";
 
 /**
  * Projeleri arama metni ve kategoriye göre filtreler.
@@ -36,4 +36,19 @@ export function sortProjects(projects: Project[], filters: FilterState): Project
 
         return sortOrder === "asc" ? result : -result;
     });
+}
+
+/**
+ * Projeleri tüm filtrelere ve sıralama kurallarına göre birleştirip döndürür.
+ */
+export function applyFilters(
+    projects: Project[],
+    search: string,
+    category: Category | "all",
+    sortField: SortField,
+    sortOrder: SortOrder
+): Project[] {
+    const filters: FilterState = { search, category, sortField, sortOrder };
+    const filtered = filterProjects(projects, filters);
+    return sortProjects(filtered, filters);
 }
